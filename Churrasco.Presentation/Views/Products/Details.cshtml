@@ -1,0 +1,73 @@
+﻿@model Churrasco.Domain.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "_LayoutNew";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header card-form">
+                <h3 class="card-title">Product Form<small></small></h3>
+            </div>
+            <form>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" disabled />
+                    </div>                    
+                    <div class="form-group">
+                        <label asp-for="Sku" class="control-label"></label>
+                        <input asp-for="Sku" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Code" class="control-label"></label>
+                        <input asp-for="Code" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Picture" class="control-label"></label>
+                        <br />
+                        <img src='@Url.Content(Model.Picture)' alt="image" class="image-default" />
+                        <span asp-validation-for="Picture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Currency" class="control-label"></label>
+                        <input asp-for="Currency" class="form-control" disabled />                        
+                    </div>
+                </div>
+            </form>
+        </div>      
+    </div>
+
+    <div class="col-md-6">
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+<script src="~/WebCore/plugins/jquery/jquery.min.js"></script>
+<script src="~/WebCore/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/WebCore/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/WebCore/plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="~/WebCore/dist/js/adminlte.min.js"></script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

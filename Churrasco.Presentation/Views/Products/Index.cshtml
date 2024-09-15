@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Churrasco.Domain.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_LayoutNew";
+}
+
+<section class="content container-fluid">
+    <p class="create-button">
+        <a href="/products/create" type="button" class="btn btn-primary command-button">Create</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sku)
+                </th>                
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Currency)
+                </th>                
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+
+            @foreach (var item in Model)
+            {                
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sku)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <img src='@Url.Content(item.Picture)' alt="image" class="image-default" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Currency)
+                    </td>                    
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
